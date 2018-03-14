@@ -4,10 +4,7 @@
  * Created: Tue Mar 15 15:58:15 2011
  * Time-stamp: <Fri Mar 23 14:50:20 EDT 2012 ferguson>
  */
-
-
-import pl.core.*;
-
+import java.util.Iterator;
 /**
  * A clause is a disjunction of literals.
  * We represent it as a set for ease of use later.
@@ -22,6 +19,9 @@ import pl.core.*;
  */
 public class Clause extends ArraySet<Literal> {
 
+	public Clause(){
+		super();
+	}
 	/**
 	 * Return a new Clause constructed from the given Sentence, which
 	 * must be a disjunction of literals (i.e., an AtomicSentence, the
@@ -71,15 +71,32 @@ public class Clause extends ArraySet<Literal> {
 
     /**
      * Return true if this Clause is satisfied by the given Model.
-     * That is, if each of its Literals is satisfied by the Model.
+     * That is, if one of its Literals is satisfied by the Model.
      */
 	public boolean isSatisfiedBy(Model model) {
 		for (Literal literal : this) {
-			if (!literal.isSatisfiedBy(model)) {
-				return false;
+			if (literal.isSatisfiedBy(model)) {
+				return true;
 			}
 		}
-		return true;
+		return false;
+	}
+	
+	public Clause clone() {
+		Clause aclause = new Clause();
+		Iterator<Literal> it = this.iterator();
+		while (it.hasNext()){
+			aclause.add(it.next());
+		}
+		return aclause;
+	}
+	
+	public void addAll(Clause A){
+		Iterator<Literal> it = A.iterator();
+		while(it.hasNext()){
+			this.add(it.next());
+		}
 	}
 
 }
+

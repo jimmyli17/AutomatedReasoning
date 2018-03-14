@@ -9,7 +9,6 @@ public class Model_imp implements Model{
 	public Model_imp set(Symbol sym, boolean value) {
 
 		sym.truth = value;
-		Model_imp x = new Model_imp();
 		this.symbols.put(sym, value);
 		return this;
 	}
@@ -42,7 +41,6 @@ public class Model_imp implements Model{
 	@Override
 	
 	public void dump() {
-		//System.out.println(symbols.keySet().size());
 		for(Symbol s: symbols.keySet()) {
 			System.out.print(" " + s.name + " " + symbols.get(s));
 		}

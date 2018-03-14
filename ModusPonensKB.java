@@ -1,8 +1,5 @@
 
-
 import java.util.Collection;
-
-import pl.core.*;
 
 public class ModusPonensKB extends KB {
 	
@@ -19,11 +16,21 @@ public class ModusPonensKB extends KB {
 		
 	}
 	
+	public static void MPDriver() {
+		new ModusPonensKB().dump();
+		ModusPonensKB kb = new ModusPonensKB();
+		Symbol q = intern("Q");
+		System.out.println("Does q entail if we know that p implies q and p is true?");
+		System.out.println("Basic Model Checking: " + proof.entails(kb, q));
+		System.out.println("Resolution: " + proof.PL_Resolution(kb, q));
+	}
+	
 	public static void main(String[] argv) {
 		new ModusPonensKB().dump();
-		ModusPonensKB x = new ModusPonensKB();
+		ModusPonensKB kb = new ModusPonensKB();
 		Symbol q = intern("Q");
-		System.out.println(proof.entails(x, q));
+		System.out.println(proof.entails(kb, q));
+		System.out.println(proof.PL_Resolution(kb, q));
 	}
 
 }

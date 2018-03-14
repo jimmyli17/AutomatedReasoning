@@ -6,8 +6,6 @@
  */
 
 
-import pl.core.*;
-
 /**
  * A Literal is either a Symbol or the negation of an Symbol.
  */
