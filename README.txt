@@ -4,7 +4,10 @@ Jimmy Li - jli119
 
 README FILE
 
-To run our program, copy and paste into a terminal session:
+To run our program:
+1.)download and unzip it
+2.)open a terminal session and cd into the directory of the project
+3,) copy and paste the following into a terminal session:
 
 javac Driver.java
 java Driver
