@@ -1,6 +1,6 @@
 Thomas Kaizer - tkaizer
-Matthew Boddewyn - mboddewy
 Jimmy Li - jli119
+Matthew Boddewyn - mboddewy
 
 README FILE
 
